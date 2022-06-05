@@ -1,16 +1,34 @@
 #ifndef TRABALHO2_ESTRUTURAVETORES_H
 #define TRABALHO2_ESTRUTURAVETORES_H
+#define TAM 10
 
-// enumeracoes (enum) ajudam a deixar o codigo mais legivel, possibilitando que voce de significado
-// as suas constantes, para mais informacoes https://en.cppreference.com/w/c/language/enum
-// as constantes do enum em sua inicialização vao representar o numero resultante da soma do valor da
-// constante anterior mais 1, caso nao haja valor algum na primeira constante ela vai ser inicializada com 0
-enum { TODAS_ESTRUTURAS_AUXILIARES_VAZIAS = -11, NOVO_TAMANHO_INVALIDO, NUMERO_INEXISTENTE,ESTRUTURA_AUXILIAR_VAZIA, TAMANHO_INVALIDO, SEM_ESPACO_DE_MEMORIA, POSICAO_INVALIDA,JA_TEM_ESTRUTURA_AUXILIAR, SEM_ESTRUTURA_AUXILIAR, SEM_ESPACO, SUCESSO};
+enum {
+  TODAS_ESTRUTURAS_AUXILIARES_VAZIAS = -11,
+  NOVO_TAMANHO_INVALIDO = 1,
+  NUMERO_INEXISTENTE = 2,
+  ESTRUTURA_AUXILIAR_VAZIA = 3,
+  TAMANHO_INVALIDO = 4,
+  SEM_ESPACO_DE_MEMORIA = 5,
+  POSICAO_INVALIDA = 6,
+  JA_TEM_ESTRUTURA_AUXILIAR = 7,
+  SEM_ESTRUTURA_AUXILIAR = 8,
+  SEM_ESPACO = 9,
+  SUCESSO = 10
+};
 
 typedef struct reg {
-    int conteudo;
-    struct reg *prox;
+  int conteudo;
+  struct reg *prox;
 } No;
+
+typedef struct dados {
+  int *pont;
+  int qtd;
+  int tam;
+}Principal;
+
+
+
 
 int criarEstruturaAuxiliar(int posicao, int tamanho);
 int inserirNumeroEmEstrutura(int posicao, int valor);
@@ -25,31 +43,7 @@ int getQuantidadeElementosEstruturaAuxiliar(int posicao);
 No *montarListaEncadeadaComCabecote();
 void getDadosListaEncadeadaComCabecote(No *inicio, int vetorAux[]);
 void destruirListaEncadeadaComCabecote(No **inicio);
-
 void inicializar();
 void finalizar();
-void dobrar(int *x);
 
-//FUNÇÕES AUXILIARES:
-int Posicao_Valida (int posicao);
-
-
-
-
-
-int main (){
-
-  printf ("%d\n", TODAS_ESTRUTURAS_AUXILIARES VAZIAS);
-  printf ("%d\n", NOVO_TAMANHO_INVALIDO);
-  printf ("%d\n", NUMERO_INEXISTENTE);
-  printf ("%d\n", ESTRUTURA_AUXILIAR_VAZIA);
-  printf ("%d\n", TAMANHO_INVALIDO);
-  printf ("%d\n", SEM_ESPACO_DE_MEMORIA);
-  printf ("%d\n", POSICAO_INVALIDAS);
-  printf ("%d\n", JA_TEM_ESTRUTURA_AUXILIAR);
-  printf ("%d\n", SEM_ESTRUTURA_AUXILIAR);
-  printf ("%d\n", SEM_ESPACO);
-  printf ("%d\n", SUCESSO);
-  
-}
-#endif  // TRABALHO2_ESTRUTURAVETORES_H
+#endif // TRABALHO2_ESTRUTURAVETORES_H
