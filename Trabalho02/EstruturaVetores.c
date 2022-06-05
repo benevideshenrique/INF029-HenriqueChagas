@@ -4,7 +4,6 @@
 #define TAM 10
 #include "EstruturaVetores.h"
 
-
 Principal vetorPrincipal[TAM];
 
 void inicializar() {
@@ -118,9 +117,7 @@ int excluirNumeroEspecificoDeEstrutura(int posicao, int valor) {
   }
 
   int getDadosOrdenadosEstruturaAuxiliar(int posicao, int vetorAux[]) {
-
     int i, j, retorno, auxiliar;
-
     if (posicao > 10 || posicao < 1)
       retorno = POSICAO_INVALIDA;
     else {
@@ -152,11 +149,8 @@ int excluirNumeroEspecificoDeEstrutura(int posicao, int valor) {
     int i, contador = 0;
     int j, retorno;
     for (i = 0; i < TAM; i++) {
-
       if (vetorPrincipal[i].pont != NULL) {
-
         if (vetorPrincipal[i].qtd > 0) {
-          // for para fazer o vetor auxiliar assumir os valores
           for (j = 0; j < vetorPrincipal[i].qtd; j++) {
             vetorAux[contador] = vetorPrincipal[i].pont[j];
             contador++;
@@ -183,7 +177,6 @@ int excluirNumeroEspecificoDeEstrutura(int posicao, int valor) {
       if (vetorPrincipal[i].pont != NULL) {
 
         if (vetorPrincipal[i].qtd > 0) {
-          // for para fazer o vetor auxiliar assumir os valores
           for (j = 0; j < vetorPrincipal[i].qtd; j++) {
             vetorAux[contador] = vetorPrincipal[i].pont[j];
             contador++;
@@ -259,34 +252,67 @@ int excluirNumeroEspecificoDeEstrutura(int posicao, int valor) {
     return retorno;
   }
 
-
-No* criarElemento(int valor){
-	No *novo = (No *)malloc(sizeof(No));
-	if(novo == NULL){
-        printf("Falta Memoria\n");
-        exit(1);
+void inserirNoFinal(No *inicio, int val){
+  //cria-se um ponteiro do tipo No que será responsável por implementar os dados no final da lista
+		No* novo = (No*)malloc(sizeof(No));
+  //atribui-se a ele o valor informado pelo usuário/teste
+  	novo->conteudo = val;
+  //o ponteiro da estrutura apontará para NULL por ser o último elemento da lista
+  	novo->prox = NULL;
+  //verifica-se se inicio está apontando para nulo (provavelmente sim,porém pode ter acontecido manipulação da estrutura)
+  	  if(inicio->prox == NULL){
+  //caso esteja apontando para NULL, significa que ele é o fim da lista, assim, devemos fazer inicio apontar para o novo fim, que é novo
+  		inicio->prox = novo;
+  	}else{
+  //caso a lista não esteja vazia, deve-se atribuir o valor de novo 
+		while(inicio->prox != NULL)
+			inicio = inicio->prox;
+		  inicio->prox = novo;
 	}
-	novo->conteudo = valor;
-	novo->prox = NULL;
-	return novo;
-}
-
-
-void inserirNoFinalComCabecote(No *inicio, int val){
-
 }
 
 No *montarListaEncadeadaComCabecote()
 {
+  int i, j, retorno=0, aux=0;
+    //criando cabeçote
+  No *cabecote = (No*) malloc(sizeof(No));  
+  //varrendo principal em busca de estrutura auxiliar
+  for (i = 0; i < TAM; i++){
+    //verificando se a lista está vazia
+    if (vetorPrincipal[i].pont != NULL){ 
+      //caso a lista não esteja vazia verifica-se no vetor principal a quantidade de elementos 
+      if (vetorPrincipal[i].qtd > 0){
+        aux++;
+       //varre-se a estrutura chamando a função de inserir no final para acrescentar o elemento
+        for (j = 0; j < vetorPrincipal[i].qtd; j++)
+        {
+          inserirNoFinal(cabecote, vetorPrincipal[i].pont[j]); 
+        }
+      }
+    }
+  }
+  //caso tenha sido acrescentado algum elemento, retorna o cabeçote, caso contrário, retorna NULL indicando que nada foi feito
+  if (aux > 0)
+    return cabecote;
+  else
+    return NULL;
 }
 
 void getDadosListaEncadeadaComCabecote(No *inicio, int vetorAux[])
   {
+    //para achar os dados da lista encadeada é necessário fazer uma leitura da estrutura. Para isso, se cria um vetor auxiliar que irá armazenar os valores dos próximos elementos até a chegada no final da lista, quando o ponteiro irá apontar para NULL
+  No *leitor;
+  int i = 0;
+  for (leitor = inicio->prox; leitor != NULL; leitor = leitor->prox){
+    //o vetor auxiliar irá receber os dados. Cada vez que essa operação seja realizada, incrementa-se o contador i, de modo que o vetor auxiliar seja percorrido
+    vetorAux[i] = leitor->conteudo;
+    i++;
+    }
 }
 
 void destruirListaEncadeadaComCabecote(No **inicio)
 {
-   No* atual = *inicio;
+  No* atual = *inicio;
 	No* tmp;
 
 	while(atual != NULL){
