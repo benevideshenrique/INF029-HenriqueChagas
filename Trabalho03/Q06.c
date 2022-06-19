@@ -16,9 +16,8 @@ int main(){
     scanf ("%d", &num);
     printf("Favor informar o valor do expoente: \n");
     scanf ("%d", &exp);
-  
-    res = pot(num, exp);
-    printf ("O valor final é: %ld\n", res);
+
+    printf ("O valor final é: %ld\n", pot(num, exp));
 }
 
 long pot (int k, int n){

@@ -3,12 +3,12 @@
 int soma(int a);
 
 int main(){
-  int resultado, numero;
-  printf ("Favor inserir o valor que gostaria de calcular a soma:\n");
-  scanf ("%d", &numero);
-  soma(numero);
-  resultado = soma(numero);
-  printf("A soma entre 1 e o número %d é: %d\n", numero, resultado);
+  int resultado, numero = 0;
+    while(numero<=0){
+    printf ("Favor inserir o valor que gostaria de calcular a soma:\n");
+    scanf ("%d", &numero);
+    }
+      printf("A soma entre 1 e o número %d é: %d\n", numero, soma(numero));
   }
 
 int soma (int a){

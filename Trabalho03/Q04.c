@@ -12,8 +12,7 @@ int main(){
     printf("Favor informar o valor na posição %d do vetor:\n",i+1);
     scanf("%d", &vetor[i]);
   }
-  total = soma (vetor, n);
-  printf ("A soma dos valores do vetor de %d posições é: %d\n", n, total);
+  printf ("A soma dos valores do vetor de %d posições é: %d\n", n, soma (vetor, n));
 }
 
 int soma(int vetor[], int tam){

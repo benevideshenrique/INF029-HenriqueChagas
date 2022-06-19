@@ -9,7 +9,7 @@ int main(){
   printf("Digite o número que deseja obter o termo na sequencia de Fibonacci:\n");
   scanf ("%d", &n);
   vfib = fib(n);
-  printf ("O valor na posição %d é %d\n",n,vfib);
+  printf ("O valor na posição %d é %d\n",n,fib(n));
 }
 
 int fib (int a){

@@ -1,5 +1,5 @@
-/*12) Faça uma função recursiva que receba um número inteiro positivo N e imprima
-todos os números naturais de 0 até N em ordem crescente.*/
+/*13) Faça uma função recursiva que receba um número inteiro positivo N e imprima
+todos os números naturais de 0 até N em ordem decrescente.*/
 
 #include <stdio.h>
 
@@ -18,8 +18,7 @@ int PrintNum(int n){
       printf ("%d\n", n);
       n--;
       PrintNum(n);
-    }
-      else {
+    }else {
         return 0;
         }
 }

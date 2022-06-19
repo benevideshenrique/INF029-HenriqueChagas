@@ -8,8 +8,7 @@ int main(){
   
   printf ("Favor digitar o número do qual deseja obter o fatorial:\n");
   scanf ("%d", &numero);
-  fatorial = fat(numero);
-  printf("Fatorial de %d é %ld",numero,fatorial);
+  printf("Fatorial de %d é %ld",numero,fat(numero));
   
   return 0;
 }
