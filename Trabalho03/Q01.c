@@ -14,7 +14,7 @@ int main(){
 }
 
 long fat (int a){
-  int fatorial=0;
+  long fatorial=0;
   if (a<=1){
     return 1;
   }else{
