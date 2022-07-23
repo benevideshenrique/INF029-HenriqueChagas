@@ -3,7 +3,7 @@
 #### - Projeto Escola:
 ###### Desenvolver um sistema de cadastro de alunos, professores e disciplinas para uma escola.
 #### - Trabalho 01 - Funções;
-###### Desenvolver questões com tema de funções com verificação automática segundo cóigo fornecido.
+###### Desenvolver questões com tema de funções com teste automatizado segundo código fornecido.
 #### - Trabalho 02 - Ponteiros;
 ###### Desenvolver questões como tema de ponteiros.
 #### - Trabalho 03 - Lista de recursão;
